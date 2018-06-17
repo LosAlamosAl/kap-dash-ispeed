@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-#
+# Add documentatin and error checking!
 # ./mkraw.sh "`date`" "`./node_modules/fast-cli/cli.js`"
 DATE=`date`
 FASTCLI=`~/fast-cli/cli.js`
