@@ -11,3 +11,5 @@ sed "s+\/\* SED TARGET \*\/+{d: \"$DATE\", s: \"$FASTCLI\"},\\
   &+" raw_data.js > raw_data.js.tmp && mv raw_data.js.tmp raw_data.js
 git commit -am "New data: ${DATE}"
 git push
+# Remove puppeteer cruft or it'll exhaust /tmp space
+rm -rf /tmp/.org.chromium.Chromium.*
