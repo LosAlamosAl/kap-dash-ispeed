@@ -135,5 +135,6 @@ let rawData = [
   {d: "Sat Jun 23 12:00:13 UTC 2018", s: "88 Mbps"},
   {d: "Sat Jun 23 13:00:36 UTC 2018", s: "87 Mbps"},
   /* Missing data: Chromium filling up /tmp */
+  {d: "Sun Jun 24 21:00:21 UTC 2018", s: "76 Mbps"},
   /* SED TARGET */
 ];
