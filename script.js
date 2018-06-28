@@ -1,82 +1,43 @@
-/*
-let hourlyData = [];
-
-for (var i in rawData) {
-  hourlyData.push([Date.parse(rawData[i]["d"]),
-                  parseInt(rawData[i]["s"].split(" ")[0])]);
-}
-*/
-
 var hourlyData = rawData.map(arr => {
-    var narr = [];
-    narr.push(Date.parse(arr["d"]), parseInt(arr["s"].split(" ")[0]));
-    return narr;
+  var narr = [];
+  var speed = parseInt(arr["s"].split(" ")[0]);
+  if (isNaN(speed))
+    speed = null;
+  narr.push(Date.parse(arr["d"]), speed);
+  return narr;
 });
 
-/*
-var dailyData = [];
+
 var sdData = [];      // date in short format YYY-MM-DD
-
-for (var i in rawData) {
-  let ld = new Date(rawData[i]["d"]);      // date in long format
+for (let i in hourlyData) {
+  let ld = new Date(hourlyData[i][0]);
   let sd = new Date(ld.getFullYear(), ld.getMonth(), ld.getDate());
-  sdData.push([Date.parse(sd), parseInt(rawData[i]["s"].split(" ")[0])]);
-}
-console.log(sdData);
-
-var groupByArray(xs, key) {
-  return xs.reduce(function (rv, x) {
-    let v = key instanceof Function ? key(x) : x[key];
-    let el = rv.find((r) => r && r.key === v);
-    if (el) {
-      el.values.push(x);
-    } else {
-      rv.push({ key: v, values: [x] });
-    } return rv;
-  }, []);
+  sdData.push([sd, hourlyData[i][1]]);
 }
 
-function groupBy(list, keyGetter) {
-  const map = new Map();
-  list.forEach((item) => {
-    const key = keyGetter(item);
-    const collection = map.get(key);
-    if (!collection) {
-      map.set(key, [item]);
-    } else {
-      collection.push(item);
-    }
-  });
-  return map;
-}
-*/
 
-
-
-
-
-/*
-let dailyData = [];
-let daySpeeds = [];
-
-for (i=0; i<rawData.length; i++) {
-  var curDate = new Date(rawData[0]["d"]).getDate();
-  var minSpeed = paresInt(rawData[0]["s"].split(" ")[0]);
-  var maxSpeed = minSpeed;
-  while (var nextDate = new Date(rawData[i].getDate() == curDate) {
-    var nextSpeed = parseInt(rawData[i]["s"].split(" ")[0]);
-    if (nextSpeed < minSpeed) {
-      minSpeed = nextSpeed;
-    }
-    if (nextSpeed > maxSpeed) {
-      maxSpeed = nextSpeed;
-    }
+var dailyData = [];
+var lo = 0;
+var hi = 0;
+for (var i=0; i<sdData.length; i++) {
+  let speeds = [];
+  let tDate = sdData[i][0].getDate();        // day of month (1-31)
+  while (i<sdData.length && sdData[i][0].getDate() == tDate) {
+    if (sdData[i][1] !== null)      // null indicated missing data
+      speeds.push(sdData[i][1]);
     i++;
   }
-  hourlyData.push([Date.parse(rawData[i]["d"]),
-                  parseInt(rawData[i]["s"].split(" ")[0])]);
+  i--;       //  back up to avoid double increment of i (while and for)
+  if (speeds.length != 0) {
+    lo = Math.min(...speeds);
+    hi = Math.max(...speeds);
+  } else {                        // entire day is missing data
+    lo = null;
+    hi = null;
+  }
+  dailyData.push([Date.parse(sdData[i][0]), lo, hi]);
 }
-*/
+
 
 
 
@@ -86,6 +47,12 @@ Highcharts.stockChart('hourly', {
     selected: 1
   },
 
+  plotOptions: {
+    line: {
+      connectNulls: false
+    }
+  },
+  
   title: {
     text: 'Hourly fast.com Download Speed'
   },
@@ -95,7 +62,21 @@ Highcharts.stockChart('hourly', {
       min: 0
     }
   },
-  
+
+  xAxis: {
+    plotBands: [{
+      from: Date.UTC(2018, 05, 23, 13, 0),
+      to: Date.UTC(2018, 05, 24, 21, 0),
+      color: '#FCF2F2',
+      label: {
+        text: 'Pi disk full',
+        style: {
+          color: '#999999'
+        }
+      }
+    }]
+  },
+
   yAxis: {
     min: 0
   },
@@ -103,6 +84,7 @@ Highcharts.stockChart('hourly', {
   series: [{
     name: 'Mbps',
     data: hourlyData,
+    id: 'dlspeed',
     tooltip: {
       valueDecimals: 2
     }
@@ -113,7 +95,7 @@ Highcharts.stockChart('hourly', {
 Highcharts.stockChart('daily', {
 
   rangeSelector: {
-    selected: 2
+    selected: 1
   },
 
   chart: {
@@ -134,12 +116,17 @@ Highcharts.stockChart('daily', {
     min: 0
   },
   
+  xAxis: {
+    type: 'datetime'
+  },
+  
+  tooltip: {
+    valueSuffix: 'Mbps',
+    valueDecimals: 0
+  },
+
   series: [{
     name: 'Mbps',
-    data: dailyData,
-    tooltip: {
-      valueSuffix: 'Mbps',
-      valueDecimals: 0
-    }
+    data: dailyData
   }]
 });
