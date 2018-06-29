@@ -74,6 +74,10 @@ Highcharts.stockChart('hourly', {
           color: '#999999'
         }
       }
+    },{
+      from: Date.UTC(2018, 05, 29, 16, 0),
+      to: Date.UTC(2018, 05, 29, 19, 0),
+      color: '#FCF2F2'
     }]
   },
 
