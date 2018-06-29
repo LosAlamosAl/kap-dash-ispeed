@@ -1,8 +1,21 @@
 #!/usr/bin/env sh
-# Add documentatin and error checking!
+
+# mkraw.sh - add new download speed to raw data file
+#
+# This script checks internet speed using Netflix's fast.com
+# and adds it to the tail end of a static JavaScript file.
+#
+# The script is usually (in "production") executed via a cron
+# job to periodically test internet download speed.
+#
 # ./mkraw.sh "`date`" "`./node_modules/fast-cli/cli.js`"
+
+
 FASTCLI=`~/fast-cli/cli.js`
 DATE=`date`
+
+
+
 cd ~/jstest
 git pull
 # cd down into internet speed page

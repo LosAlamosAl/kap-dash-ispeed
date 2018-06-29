@@ -64,7 +64,7 @@ Highcharts.stockChart('hourly', {
   },
 
   xAxis: {
-    plotBands: [{
+    plotBands: [{                            // Pi disk full
       from: Date.UTC(2018, 05, 23, 13, 0),
       to: Date.UTC(2018, 05, 24, 21, 0),
       color: '#FCF2F2',
@@ -74,7 +74,7 @@ Highcharts.stockChart('hourly', {
           color: '#999999'
         }
       }
-    },{
+    },{                                      // unknown outage
       from: Date.UTC(2018, 05, 29, 16, 0),
       to: Date.UTC(2018, 05, 29, 19, 0),
       color: '#FCF2F2'
