@@ -16,10 +16,8 @@ DATE=`date`
 
 
 
-cd ~/jstest
+cd ~/kap-dash-ispeed
 git pull
-# cd down into internet speed page
-# git clone git@losalamosal.github.com:losalamosal/jstest.git
 sed "s+\/\* SED TARGET \*\/+{d: \"$DATE\", s: \"$FASTCLI\"},\\
   &+" raw_data.js > raw_data.js.tmp && mv raw_data.js.tmp raw_data.js
 git commit -am "New data: ${DATE}"
