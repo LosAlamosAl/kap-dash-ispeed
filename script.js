@@ -227,7 +227,7 @@ Highcharts.chart('speedmap', {
     nullColor: '#00FF00',
     colsize: 24 * 36e5, // one day
     tooltip: {
-      headerFormat: 'Temperature<br/>',
+      headerFormat: 'Speed variance from 75Mbps:<br/>',
       pointFormat: '{point.x:%e %b, %Y} {point.y}:00: <b>{point.value} Mbps</b>'
     },
     turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
