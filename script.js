@@ -67,14 +67,8 @@ Highcharts.stockChart('hourly', {
     plotBands: [{                            // Pi disk full
       from: Date.UTC(2018, 05, 23, 13, 0),
       to: Date.UTC(2018, 05, 24, 21, 0),
-      color: '#FCF2F2',
-      label: {
-        text: 'Pi disk full',
-        style: {
-          color: '#999999'
-        }
-      }
-    },{                                      // unknown outage
+      color: '#F2F5FC',
+    },{                                      // national outage
       from: Date.UTC(2018, 05, 29, 16, 0),
       to: Date.UTC(2018, 05, 29, 19, 0),
       color: '#FCF2F2'
@@ -84,7 +78,6 @@ Highcharts.stockChart('hourly', {
   yAxis: {
     min: 0
   },
-  
   series: [{
     name: 'Mbps',
     data: hourlyData,
@@ -92,6 +85,19 @@ Highcharts.stockChart('hourly', {
     tooltip: {
       valueDecimals: 2
     }
+  }, {
+    type: 'flags',
+    data: [{
+      x: Date.UTC(2018, 05, 23, 13, 0),     // Pi disk full
+      title: 'B',
+      text: '<em>My bug</em>: <br>Raspberry PI disk full'
+    }, {
+      x: Date.UTC(2018, 05, 29, 16, 0),     // national outage
+      title: 'N',
+      text: '<em>National Comcast outage</em>: <br>cut fiber cable'
+    }],
+    shape: 'squarepin',
+    width: 16
   }]
 });
 
