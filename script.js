@@ -216,7 +216,7 @@ Highcharts.chart('speedmap', {
     startOnTick: false,
     endOnTick: false,
     labels: {
-      format: '{value}'
+      format: '{value} Mbps'
     }
   },
 
