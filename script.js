@@ -8,7 +8,7 @@ var hourlyData = rawData.map(arr => {
 });
 
 
-var sdData = [];      // date in short format YYY-MM-DD
+var sdData = [];      // date in short format YYYY-MM-DD
 for (let i in hourlyData) {
   let ld = new Date(hourlyData[i][0]);
   let sd = new Date(ld.getFullYear(), ld.getMonth(), ld.getDate());
@@ -39,6 +39,14 @@ for (var i=0; i<sdData.length; i++) {
 }
 
 
+var hourlyDiffData = [];
+for (var i in hourlyData) {
+  let ld = new Date(hourlyData[i][0]);
+//  let sd = new Date(ld.getFullYear(), ld.getMonth(), ld.getDate());
+  let sd = Date.UTC(ld.getFullYear(), ld.getMonth(), ld.getDate());
+//  hourlyDiffData.push([Date.parse(sd), ld.getHours(), hourlyData[i][1]-75]);
+  hourlyDiffData.push([sd, ld.getHours(), hourlyData[i][1]-75]);
+}
 
 
 Highcharts.stockChart('hourly', {
@@ -140,3 +148,90 @@ Highcharts.stockChart('daily', {
     data: dailyData
   }]
 });
+
+
+Highcharts.chart('speedmap', {
+
+  chart: {
+    type: 'heatmap',
+    margin: [60, 10, 80, 50]
+  },
+
+  boost: {
+    useGPUTranslations: true
+  },
+
+  title: {
+    text: 'Internet Speed Heat Map',
+    align: 'left',
+    x: 40
+  },
+
+  subtitle: {
+    text: 'Speed variation from 75Mbps (+/- 75 Mbps)',
+    align: 'left',
+    x: 40
+  },
+
+  xAxis: {
+    type: 'datetime',
+    min: Date.UTC(2018, 0, 1),
+    max: Date.UTC(2018, 11, 31, 23, 59, 59),
+    labels: {
+      align: 'left',
+      x: 5,
+      y: 14,
+      format: '{value:%B}' // long month
+    },
+    showLastLabel: false,
+    tickLength: 16
+  },
+
+  yAxis: {
+    title: {
+      text: null
+    },
+    labels: {
+      format: '{value}:00'
+    },
+    minPadding: 0,
+    maxPadding: 0,
+    startOnTick: false,
+    endOnTick: false,
+    tickPositions: [0, 6, 12, 18, 24],
+    tickWidth: 1,
+    min: 0,
+    max: 23,
+    reversed: true
+  },
+
+  colorAxis: {
+    stops: [
+      [0, '#de425b'],
+      [0.5, '#f1f1f1'],
+      [1, '#488f31']
+    ],
+    min: -75,
+    max: 75,
+    startOnTick: false,
+    endOnTick: false,
+    labels: {
+      format: '{value}'
+    }
+  },
+
+  series: [{
+    data: hourlyDiffData,
+    boostThreshold: 100,
+    borderWidth: 0,
+    nullColor: '#00FF00',
+    colsize: 24 * 36e5, // one day
+    tooltip: {
+      headerFormat: 'Temperature<br/>',
+      pointFormat: '{point.x:%e %b, %Y} {point.y}:00: <b>{point.value} Mbps</b>'
+    },
+    turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
+  }]
+
+});
+
