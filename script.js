@@ -90,11 +90,11 @@ Highcharts.stockChart('hourly', {
     data: [{
       x: Date.UTC(2018, 05, 23, 13, 0),     // Pi disk full
       title: 'B',
-      text: 'My bug: PI disk full'
+      text: '<em>My bug</em>: <br>Raspberry PI disk full'
     }, {
       x: Date.UTC(2018, 05, 29, 16, 0),     // national outage
       title: 'N',
-      text: 'National Comcast outage: cut fiber cable'
+      text: '<em>National Comcast outage</em>: <br>cut fiber cable'
     }],
     shape: 'squarepin',
     width: 16
