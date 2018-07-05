@@ -42,9 +42,7 @@ for (var i=0; i<sdData.length; i++) {
 var hourlyDiffData = [];
 for (var i in hourlyData) {
   let ld = new Date(hourlyData[i][0]);
-//  let sd = new Date(ld.getFullYear(), ld.getMonth(), ld.getDate());
   let sd = Date.UTC(ld.getFullYear(), ld.getMonth(), ld.getDate());
-//  hourlyDiffData.push([Date.parse(sd), ld.getHours(), hourlyData[i][1]-75]);
   hourlyDiffData.push([sd, ld.getHours(), hourlyData[i][1]-75]);
 }
 
@@ -84,7 +82,13 @@ Highcharts.stockChart('hourly', {
   },
 
   yAxis: {
-    min: 0
+    min: 0,
+    plotLines: [{
+      value: 75,
+      color: 'green',
+      dashStyle: 'shortdash',
+      width: 2
+    }]
   },
   series: [{
     name: 'Mbps',
@@ -131,7 +135,13 @@ Highcharts.stockChart('daily', {
   },
   
   yAxis: {
-    min: 0
+    min: 0,
+    plotLines: [{
+      value: 75,
+      color: 'green',
+      dashStyle: 'shortdash',
+      width: 2
+    }]
   },
   
   xAxis: {
@@ -162,7 +172,7 @@ Highcharts.chart('speedmap', {
   },
 
   title: {
-    text: 'Internet Speed Heat Map',
+    text: '2018 Internet Speed Heat Map',
     align: 'left',
     x: 40
   },
