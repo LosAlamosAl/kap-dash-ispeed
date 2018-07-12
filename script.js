@@ -94,6 +94,7 @@ Highcharts.stockChart('hourly', {
     name: 'Mbps',
     data: hourlyData,
     id: 'dlspeed',
+    linewidth: 1,
     tooltip: {
       valueDecimals: 2
     }
