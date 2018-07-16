@@ -102,12 +102,16 @@ Highcharts.stockChart('hourly', {
     type: 'flags',
     data: [{
       x: Date.UTC(2018, 05, 23, 13, 0),     // Pi disk full
-      title: 'B',
+      title: '1',
       text: '<em>My bug</em>: <br>Raspberry PI disk full'
     }, {
       x: Date.UTC(2018, 05, 29, 16, 0),     // national outage
-      title: 'N',
+      title: '2',
       text: '<em>National Comcast outage</em>: <br>cut fiber cable'
+    }, {
+      x: Date.UTC(2018, 06, 16, 12, 0),     // new cable modem
+      title: '3',
+      text: '<em>Brief outage</em>: <br>installed new cable modem'
     }],
     shape: 'squarepin',
     width: 16
