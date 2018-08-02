@@ -1097,5 +1097,6 @@ let rawData = [
   {d: "Thu Aug  2 14:00:26 UTC 2018", s: "78 Mbps"},
   {d: "Thu Aug  2 15:00:14 UTC 2018", s: "87 Mbps"},
   {d: "Thu Aug  2 16:00:38 UTC 2018", s: "64 Mbps"},
+  {d: "Thu Aug  2 17:00:39 UTC 2018", s: "66 Mbps"},
   /* SED TARGET */
 ];
