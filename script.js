@@ -111,9 +111,9 @@ Highcharts.stockChart('hourly', {
     }, {
       x: Date.UTC(2018, 06, 16, 12, 0),     // new cable modem
       title: '3',
-      text: '<em>Brief outage</em>: <br>installed new cable modem'
+      text: '<em>Breef outage</em>: <br>installed new cable modem'
     }, {
-      x: Date.UTC(2018, 07, 5, 20, 0),     // testing new Pi 3B+
+      x: Date.UTC(2018, 07, 05, 20, 0),     // testing new Pi 3B+
       title: '4',
       text: '<em>Brief outage</em>: <br>Testing new Pi 3B+'
     }],
