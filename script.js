@@ -78,6 +78,10 @@ Highcharts.stockChart('hourly', {
       from: Date.UTC(2018, 05, 29, 16, 0),
       to: Date.UTC(2018, 05, 29, 19, 0),
       color: '#FCF2F2'
+    }, {
+      from: Date.UTC(2018, 07, 05, 20, 0),   // test new Pi 3B+
+      to: Date.UTC(2018, 07, 06, 06, 0),
+      color: '#FCF5FC'
     }]
   },
 
