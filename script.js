@@ -81,11 +81,11 @@ Highcharts.stockChart('hourly', {
     }, {
       from: Date.UTC(2018, 07, 05, 21, 0),   // test new Pi 3B+
       to: Date.UTC(2018, 07, 06, 06, 0),
-      color: '#FCF5FC'
+      color: '#F2F5FC'
     }, {
       from: Date.UTC(2018, 7, 8, 2, 0),   // install new Pi 3B+
       to: Date.UTC(2018, 7, 8, 6, 0),
-      color: '#FCF5FC'
+      color: '#F2F5FC'
     }]
   },
 
@@ -111,7 +111,7 @@ Highcharts.stockChart('hourly', {
     data: [{
       x: Date.UTC(2018, 05, 23, 13, 0),     // Pi disk full
       title: '1',
-      text: '<em>My bug</em>: <br>Raspberry PI disk full'
+      text: '<em>Maintenance</em>: <br>Raspberry PI disk full'
     }, {
       x: Date.UTC(2018, 05, 29, 16, 0),     // national outage
       title: '2',
@@ -119,15 +119,15 @@ Highcharts.stockChart('hourly', {
     }, {
       x: Date.UTC(2018, 06, 16, 12, 0),     // new cable modem
       title: '3',
-      text: '<em>Brief outage</em>: <br>installed new cable modem'
+      text: '<em>Upgrade</em>: <br>installed new cable modem'
     }, {
       x: Date.UTC(2018, 07, 05, 21, 0),     // testing new Pi 3B+
       title: '4',
-      text: '<em>Brief outage</em>: <br>Testing new Pi 3B+'
+      text: '<em>Maintenance</em>: <br>Testing new Pi 3B+'
     }, {
       x: Date.UTC(2018, 07, 08, 02, 0),     // install new Pi 3B+
-      title: '4',
-      text: '<em>Brief outage</em>: <br>Install new Pi 3B+'
+      title: '5',
+      text: '<em>Upgrade</em>: <br>Install new Pi 3B+, GigE switch'
     }],
     shape: 'squarepin',
     width: 16
