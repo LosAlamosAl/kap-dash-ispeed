@@ -79,7 +79,7 @@ Highcharts.stockChart('hourly', {
       to: Date.UTC(2018, 05, 29, 19, 0),
       color: '#FCF2F2'
     }, {
-      from: Date.UTC(2018, 07, 05, 20, 0),   // test new Pi 3B+
+      from: Date.UTC(2018, 07, 05, 21, 0),   // test new Pi 3B+
       to: Date.UTC(2018, 07, 06, 06, 0),
       color: '#FCF5FC'
     }]
@@ -117,7 +117,7 @@ Highcharts.stockChart('hourly', {
       title: '3',
       text: '<em>Brief outage</em>: <br>installed new cable modem'
     }, {
-      x: Date.UTC(2018, 07, 05, 20, 0),     // testing new Pi 3B+
+      x: Date.UTC(2018, 07, 05, 21, 0),     // testing new Pi 3B+
       title: '4',
       text: '<em>Brief outage</em>: <br>Testing new Pi 3B+'
     }],
