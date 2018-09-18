@@ -73,7 +73,7 @@ Highcharts.stockChart('hourly', {
     plotBands: [{                            // Pi disk full
       from: Date.UTC(2018, 05, 23, 13, 0),
       to: Date.UTC(2018, 05, 24, 21, 0),
-      color: '#F2F5FC',
+      color: '#F2F5FC'
     },{                                      // national outage
       from: Date.UTC(2018, 05, 29, 16, 0),
       to: Date.UTC(2018, 05, 29, 19, 0),
@@ -85,6 +85,10 @@ Highcharts.stockChart('hourly', {
     }, {
       from: Date.UTC(2018, 7, 8, 2, 0),   // install new Pi 3B+
       to: Date.UTC(2018, 7, 8, 6, 0),
+      color: '#F2F5FC'
+    }, {
+      from: Date.UTC(2018, 8, 11, 6, 0),   // Comcast outage (per Fing)
+      to: Date.UTC(2018, 8, 11, 9, 0),
       color: '#F2F5FC'
     }]
   },
@@ -128,6 +132,10 @@ Highcharts.stockChart('hourly', {
       x: Date.UTC(2018, 07, 08, 02, 0),     // install new Pi 3B+
       title: '5',
       text: '<em>Upgrade</em>: <br>Install new Pi 3B+, GigE switch'
+    }, {
+      x: Date.UTC(2018, 08, 11, 06, 0),     // Comcast outage (per Fing)
+      title: '6',
+      text: '<em>Comcast outage</em>: <br>Reported by FingBox'
     }],
     shape: 'squarepin',
     width: 16
