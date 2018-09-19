@@ -89,7 +89,7 @@ Highcharts.stockChart('hourly', {
     }, {
       from: Date.UTC(2018, 8, 11, 6, 0),   // Comcast outage (per Fing)
       to: Date.UTC(2018, 8, 11, 9, 0),
-      color: '#F2F5FC'
+      color: '#FCF2F2'
     }]
   },
 
