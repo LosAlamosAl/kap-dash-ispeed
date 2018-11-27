@@ -222,8 +222,8 @@ Highcharts.chart('speedmap', {
 
   xAxis: {
     type: 'datetime',
-    min: Date.UTC(2018, 7, 1),
-    max: Date.UTC(2018, 11, 31, 23, 59, 59),
+    min: Date.UTC(2018, 5, 1),
+    max: Date.UTC(2019, 4, 30, 23, 59, 59),
     labels: {
       align: 'left',
       x: 5,
