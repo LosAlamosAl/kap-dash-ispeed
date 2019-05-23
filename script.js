@@ -181,15 +181,15 @@ Highcharts.stockChart('hourly', {
       title: '10',
       text: '<em>Comcast outage</em>: <br>Reported by FingBox'
     }, {
-      x: Date.UTC(2018, 03, 19, 10, 0),     // Comcast outage
+      x: Date.UTC(2019, 03, 19, 10, 0),     // Comcast outage
       title: '11',
       text: '<em>Comcast outage</em>: <br>Unexplained'
     }, {
-      x: Date.UTC(2018, 03, 24, 10, 0),     // Comcast outage
+      x: Date.UTC(2019, 03, 24, 10, 0),     // Comcast outage
       title: '12',
       text: '<em>Comcast outage</em>: <br>Unexplained'
     }, {
-      x: Date.UTC(2018, 04, 20, 16, 0),     // Comcast outage
+      x: Date.UTC(2019, 04, 20, 16, 0),     // Comcast outage
       title: '13',
       text: '<em>Comcast outage</em>: <br>Unexplained'
     }],
